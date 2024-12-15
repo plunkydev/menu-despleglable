@@ -40,6 +40,7 @@
     "eslintConfig": {
         "extends": "./node_modules/standard/eslintrc.json",
         "rules": {
+            "prefer-const": "off",
             "quotes": [
                 "error",
                 "single",
