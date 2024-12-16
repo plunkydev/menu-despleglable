@@ -16,7 +16,7 @@ body {
 .container {
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 70px 1fr 70px;
+  grid-template-rows: 70px 89vh 70px;
 }
 
 /* Estilos del menú */
@@ -29,6 +29,8 @@ body {
   background-color: #fff;
   width: 100%;
   padding: 0% 3%;
+  position: fixed;
+  height: 70px;
 }
 
 .imgMenuHamburgesa {
@@ -41,26 +43,69 @@ body {
   background-color: #fff;
   border: none;
   color: white;
-  transition: background-color 0.3s ease;
-}
-
-
-
-.active {
-  display: grid;
-  background-color: blue;
+  display: flex;
 }
 
 .menuList {
   display: none;
-  position: relative;
-  top: 70px;
-  left: 0;
+  position: absolute;
+  top: 68px;
+  right: 3.5%;
   width: 100%;
   background-color: #fff;
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 13px 8px rgba(0, 0, 0, 0.1);
   z-index: 1;
   justify-content: end;
-  align-items: flex-end;
-  width: 20%;
+  align-items: flex-start;
+  width: 130px;
+  justify-content: center;
+  height: 130px;
+  border-radius: 0 0 10px 10px;
+}
+
+.menuItem {
+  display: grid;
+  justify-content: center;
+  row-gap: 10px;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+}
+
+.menuItem button {
+  background-color: #fff;
+  border: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.menuItem button:hover {
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Estilos del pages */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* Estilos del footer */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 -7px 30px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 100%;
+  padding: 0% 3%;
 }
