@@ -25,7 +25,3 @@ btnAbout.addEventListener('click', () => displayCurrentPage(about))
 btnContact.addEventListener('click', () => displayCurrentPage(contact))
 
 displayCurrentPage(home)
-
-window.addEventListener('hashchange', () => displayCurrentPage(window.location.hash))
-
-window.addEventListener('load', () => displayCurrentPage(window.location.hash))
