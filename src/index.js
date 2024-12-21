@@ -1,5 +1,7 @@
 import './style.css'
-import { home, about, contact } from './pages.js'
+import { about } from './pages/about.js'
+import { contact } from './pages/contact.js'
+import { home } from './pages/home.js'
 import { displayCurrentPage } from './utils/navigation.js'
 import { showMenu, closeMenu } from './utils/menu.js'
 import page from './components/page.js'
