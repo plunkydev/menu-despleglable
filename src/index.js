@@ -1,53 +1,31 @@
 import './style.css'
-import imgMenuHamburgesa from './images/menuIcon.png'
-import close from './images/close.png'
+import { home, about, contact } from './pages.js'
+import { displayCurrentPage } from './utils/navigation.js'
+import { showMenu, closeMenu } from './utils/menu.js'
+import page from './components/page.js'
+import footer from './components/footer.js'
+import nav from './components/nav.js'
 const container = document.getElementById('container')
 
-const nav = document.createElement('nav')
-nav.innerHTML = `<nav class="navContainer">
-                <div class="logo">Plunky Dev</div>
-                <div class="btnContainer" id="btnContiner">
-                    <button id="btn" class="btn"><img id="imgMenuHamburgesa" class="imgMenuHamburgesa" src="${imgMenuHamburgesa}" alt="menu hamburgesa"></button>
-                    <div class="menuList" id="menuList">
-                        <div class="menuItem">
-                            <button id="btnHome">Home</button>
-                            <button id="btnAbout">About</button>
-                            <button id="btnContact">Contact</button>
-                        </div>
-                    </div>
-                </div>
-        </nav>`
+container.append(nav, page(), footer())
 
-const page = document.createElement('main')
-page.innerHTML = `<div class="page">
-                    <h1>Home</h1>
-                </div>`
+export const btn = document.getElementById('btn')
+export const img = document.getElementById('imgMenuHamburgesa')
+export const btnHome = document.getElementById('btnHome')
+export const btnAbout = document.getElementById('btnAbout')
+export const btnContact = document.getElementById('btnContact')
+export const menuList = document.getElementById('menuList')
+export const currentPage = document.getElementById('page')
 
-const footer = document.createElement('footer')
-footer.classList.add('footer')
-footer.innerHTML = `<p>Footer</p>`
-
-container.append(nav, page, footer)
-const btn = document.getElementById('btn')
-const img = document.getElementById('imgMenuHamburgesa')
-function closeMenu () {
-  const menuList = document.getElementById('menuList')
-  menuList.style.display = 'none'
-  img.src = imgMenuHamburgesa
-  img.style.width = '30px'
-  img.style.height = '30px'
-  btn.removeEventListener('click', closeMenu)
-  btn.addEventListener('click', showMenu)
-}
-
-function showMenu () {
-  const menuList = document.getElementById('menuList')
-  menuList.style.display = 'flex'
-  img.src = close
-  img.style.width = '20px'
-  img.style.height = '20px'
-  btn.removeEventListener('click', showMenu)
-  btn.addEventListener('click', closeMenu)
-}
 btn.addEventListener('mouseover', showMenu)
 btn.addEventListener('click', closeMenu)
+
+btnHome.addEventListener('click', () => displayCurrentPage(home))
+btnAbout.addEventListener('click', () => displayCurrentPage(about))
+btnContact.addEventListener('click', () => displayCurrentPage(contact))
+
+displayCurrentPage(home)
+
+window.addEventListener('hashchange', () => displayCurrentPage(window.location.hash))
+
+window.addEventListener('load', () => displayCurrentPage(window.location.hash))
